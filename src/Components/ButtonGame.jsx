@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 class ButtonGame extends Component {
   render() {
-    const { name } =this.props;
+    const { name, getUserGame } =this.props;
     return (
-      <button type="button">
+      <button type="button" onClick={() => getUserGame(name) } >
         {name}
       </button>
     );
@@ -13,7 +13,8 @@ class ButtonGame extends Component {
 }
 
 ButtonGame.propTypes = {
-
+  name: PropTypes.string.isRequired,
+  getUserGame: PropTypes.func.isRequired,
 };
 
 export default ButtonGame;
