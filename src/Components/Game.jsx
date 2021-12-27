@@ -9,6 +9,7 @@ class Game extends Component {
     this.state = {
       userGame: "", 
       computerGame: "",
+      gameDone: false,
     }
   }
   
@@ -19,14 +20,14 @@ class Game extends Component {
   generateComputerGame = () => {
     const options = ['Pedra', 'Papel', 'Tesoura'];
     const index = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-    this.setState({ computerGame: options[index] })
+    this.setState({ computerGame: options[index], gameDone: true })
   }
 
   render() {
-    const { userGame, computerGame } = this.state;
+    const { userGame, computerGame, gameDone } = this.state;
     return (
       <div>
-        <Ring userGame={ userGame } computerGame={ computerGame }   />
+        <Ring userGame={userGame} computerGame={computerGame} gameDone ={ gameDone }  />
         <UserGame userGame={userGame} generateComputerGame={ this.generateComputerGame } />
         <ButtonGame name="Pedra" getUserGame={this.getUserGame } />
         <ButtonGame name="Papel" getUserGame={ this.getUserGame} />

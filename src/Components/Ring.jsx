@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 class Ring extends Component {
   render() {
-    const { computerGame , userGame } = this.props;
+    const { computerGame, userGame, gameDone } = this.props;
     return (
       <div>
-        { computerGame } X { userGame }
+        { gameDone ? `${computerGame} X ${userGame}` : "Teste"}
       </div>
     );
   }
