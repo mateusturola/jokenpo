@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 class UserGame extends Component {
   render() {
-    const { userGame } = this.props
+    const { userGame, generateComputerGame } = this.props
     return (
       <div>
         { userGame }
-        <button type="button" >
+        <button type="button" onClick={() => generateComputerGame() }>
           Jokenpô
         </button>
       </div>
