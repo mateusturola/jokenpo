@@ -18,7 +18,7 @@ class Scoreboard extends Component {
           Computer {computerScore} | { userScore } You
         </div>
         <div>
-          { win === "" ? "" : win }
+          { win !== "" && win }
         </div>
       </div>
     );

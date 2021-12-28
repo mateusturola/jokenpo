@@ -8,6 +8,7 @@ class Game extends Component {
   constructor() {
     super();
     this.state = {
+      userSelectGame:"",
       userGame: "", 
       computerGame: "",
       gameDone: false,
@@ -18,56 +19,43 @@ class Game extends Component {
   }
   
   getUserGame = (name) => {
-    this.setState({ userGame: name});
+    this.setState({ userSelectGame: name});
   } 
-
+  
   generateComputerGame = () => {
+    const { userSelectGame } = this.state;
+
     const options = ['Pedra', 'Papel', 'Tesoura'];
     const index = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-    this.setState({ computerGame: options[index], gameDone: true })
-    setTimeout(() => {
-      this.judge();
-      }, 500);
+    this.setState({ userGame: userSelectGame});
+    this.setState({ computerGame: options[index], gameDone: true });
+    setTimeout(() => this.judge(), 500);
   }
 
-  judge = () =>
-  {
-    const {
-      state: {
-        userGame,
-        computerGame,
-      } } = this;
+  judge = () => {
+    const { userGame, computerGame } = this.state;
 
     if (userGame === 'Papel' && computerGame === 'Pedra') {
       this.setState((prev) => ({ win: 'You Win!', userScore: prev.userScore + 1 }))
-    } else
-
-    if (userGame === 'Tesoura' && computerGame === 'Papel') {
+    } else if (userGame === 'Tesoura' && computerGame === 'Papel') {
       this.setState((prev) => ({ win: 'You Win!', userScore: prev.userScore + 1 }))
-    } else
-
-    if (userGame === 'Pedra' && computerGame === 'Tesoura') {
-      console.log('pedra e Tesoura');
+    } else if (userGame === 'Pedra' && computerGame === 'Tesoura') {
       this.setState((prev) => ({ win: 'You Win!', userScore: prev.userScore + 1 }))
-    } else
-
-    if (userGame === computerGame) {
-      console.log('Empate');
+    } else if (userGame === computerGame) {
       this.setState({ win: 'Tie!' })
     } else {
       this.setState((prev) => ({ win: 'Computer Win!', computerScore: prev.computerScore + 1 }))
     }
-
   }
 
 
   render() {
-    const { userGame, computerGame, gameDone, userScore, computerScore, win } = this.state;
+    const { userGame, userSelectGame, computerGame, gameDone, userScore, computerScore, win } = this.state;
     return (
       <div>
         <Scoreboard userScore={userScore} computerScore={computerScore} win={win} />
         <Ring userGame={userGame} computerGame={computerGame} gameDone ={ gameDone }  />
-        <UserGame userGame={userGame} generateComputerGame={ this.generateComputerGame } />
+        <UserGame userGame={userSelectGame} generateComputerGame={ this.generateComputerGame } />
         <ButtonGame name="Pedra" getUserGame={this.getUserGame } />
         <ButtonGame name="Papel" getUserGame={ this.getUserGame} />
         <ButtonGame name="Tesoura" getUserGame={ this.getUserGame } />
