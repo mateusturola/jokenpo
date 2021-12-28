@@ -6,14 +6,16 @@ class Ring extends Component {
     const { computerGame, userGame, gameDone } = this.props;
     return (
       <div>
-        { gameDone ? `${computerGame} X ${userGame}` : "Teste"}
+        { gameDone ? `${computerGame} X ${userGame}` : ""}
       </div>
     );
   }
 }
 
 Ring.propTypes = {
-
+  computerGame: PropTypes.string.isRequired,
+  userGame: PropTypes.string.isRequired,
+  gameDone: PropTypes.bool.isRequired
 };
 
 export default Ring;
