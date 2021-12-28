@@ -13,14 +13,14 @@ class Scoreboard extends Component {
     }} = this;
   
     return (
-      <div>
-        <div>
-          Computer {computerScore} | { userScore } You
+      <>
+        <div className="scoreBoard">
+          Comp. {computerScore} | { userScore } You
         </div>
         <div>
           { win !== "" && win }
         </div>
-      </div>
+      </>
     );
   }
 }

@@ -6,7 +6,7 @@ class Ring extends Component {
     const { computerGame, userGame, gameDone } = this.props;
     return (
       <div>
-        { gameDone && `${computerGame} X ${userGame}` }
+        {computerGame} X {userGame}
       </div>
     );
   }

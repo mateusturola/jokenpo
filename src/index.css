@@ -7,7 +7,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+ --pink: #FAD1D9;
+ --blue: #C5F6FF;
+ --stroke: #522438; 
+ --green: #C2E688;
+ --red: #FC6963;
+ --light-brow: #846662;
+ --gray: #9EA1AF;
+}
+
+* { 
+  box-sizing: border-box;
+}
+
+html, body { 
+  min-height: 100vh; margin: 0;   
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; 
+}
+
+button {
+  outline:0 !important; 
+  cursor: pointer;
+}
+
+button:focus {
+box-shadow: inset 0 0 !important;
 }

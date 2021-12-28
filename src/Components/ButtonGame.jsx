@@ -5,7 +5,7 @@ class ButtonGame extends Component {
   render() {
     const { name, getUserGame } =this.props;
     return (
-      <button type="button" onClick={() => getUserGame(name) } >
+      <button type="button" onClick={() => getUserGame(name)}>
         {name}
       </button>
     );

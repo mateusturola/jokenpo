@@ -6,7 +6,6 @@ class UserGame extends Component {
     const { userGame, generateComputerGame } = this.props
     return (
       <div>
-        { userGame }
         <button type="button" onClick={() => generateComputerGame() }>
           Jokenpô
         </button>

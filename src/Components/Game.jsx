@@ -3,23 +3,24 @@ import ButtonGame from './ButtonGame';
 import Ring from './Ring';
 import Scoreboard from './Scoreboard';
 import UserGame from './UserGame';
+import '../Style/game.css'
 
 class Game extends Component {
   constructor() {
     super();
     this.state = {
-      userSelectGame:"",
-      userGame: "", 
-      computerGame: "",
+      userSelectGame:"...",
+      userGame: "...", 
+      computerGame: "...",
       gameDone: false,
       userScore: 0,
       computerScore: 0,
-      win: ""
+      win: "..."
     }
   }
   
   getUserGame = (name) => {
-    this.setState({ userSelectGame: name});
+    this.setState({ userSelectGame: name, win: "...", userGame: "...", computerGame: "..." });
   } 
   
   generateComputerGame = () => {
@@ -52,14 +53,29 @@ class Game extends Component {
   render() {
     const { userGame, userSelectGame, computerGame, gameDone, userScore, computerScore, win } = this.state;
     return (
-      <div>
-        <Scoreboard userScore={userScore} computerScore={computerScore} win={win} />
-        <Ring userGame={userGame} computerGame={computerGame} gameDone ={ gameDone }  />
-        <UserGame userGame={userSelectGame} generateComputerGame={ this.generateComputerGame } />
-        <ButtonGame name="Pedra" getUserGame={this.getUserGame } />
-        <ButtonGame name="Papel" getUserGame={ this.getUserGame} />
-        <ButtonGame name="Tesoura" getUserGame={ this.getUserGame } />
-      </div>
+      <>
+        <div className="game">
+          <div className="header"></div>
+          <div className="screen">
+          <div className="glass">
+            <Scoreboard userScore={userScore} computerScore={computerScore} win={win} />
+            <Ring userGame={userGame} computerGame={computerGame} gameDone={gameDone} userSelectGame={ userSelectGame }  />
+          </div>
+          </div>
+          <div className="actions">
+            <div className="directions">
+              <button type="button" onClick={() => this.generateComputerGame()} className="arrow-top">
+                Jokenpô
+              </button>
+            </div>
+            <div className="buttons" >
+              <ButtonGame name="Pedra" getUserGame={this.getUserGame } />
+              <ButtonGame name="Papel" getUserGame={ this.getUserGame} />
+              <ButtonGame name="Tesoura" getUserGame={ this.getUserGame } />
+            </div>
+          </div>
+        </div>
+      </>
     );
   }
 }
