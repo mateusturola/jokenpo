@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jokenpo/static/css/main.41851cbc.css",
+    "main.js": "/jokenpo/static/js/main.ceb772ad.js",
+    "index.html": "/jokenpo/index.html",
+    "main.41851cbc.css.map": "/jokenpo/static/css/main.41851cbc.css.map",
+    "main.ceb772ad.js.map": "/jokenpo/static/js/main.ceb772ad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.41851cbc.css",
+    "static/js/main.ceb772ad.js"
+  ]
+}
